@@ -1,0 +1,170 @@
+\section{多维高斯函数}
+
+高斯分布函数：
+\begin{equation}
+p(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+\end{equation}
+
+\subsection{两个高斯分布相乘}
+\begin{align}
+    &\frac{1}{\sqrt{2\pi}\sigma_{1}}e^{-\frac{(x-\mu_{1})^2}{2\sigma_{1}^2}}
+    \frac{1}{\sqrt{2\pi}\sigma_{2}}e^{-\frac{(x-\mu_{2})^2}{2\sigma_{2}^2}}=?\\
+    \\
+    &\frac{(x-\mu_{1})^2}{2\sigma_{1}^2} + \frac{(x-\mu_{2})^2}{2\sigma_{2}^2}\\
+    =& \frac{(\sigma_{1}^2+\sigma_{2}^2)x^2+\sigma_{2}^2\mu_{1}^2+\sigma_{1}^2\mu_{2}^2-2(\sigma_{2}^2\mu_{1}+\sigma_{1}^2\mu_{2})x}{2(\sigma_{1}\sigma_{2})^2}\\
+    =& \frac{(\sigma_{1}^2+\sigma_{2}^2)(x-\frac{\sigma_{2}^2\mu_{1}+\sigma_{1}^2\mu_{2}}{\sigma_{1}^2+\sigma_{2}^2})^2- \frac{(\sigma_{2}^2\mu_{1}+\sigma_{1}^2\mu_{2})^2}{\sigma_{1}^2+\sigma_{2}^2} +\sigma_{2}^2\mu_{1}^2+\sigma_{1}^2\mu_{2}^2}{2(\sigma_{1}\sigma_{2})^2}\\
+    \\
+    &\frac{1}{\sqrt{2\pi}\sigma_{1}}e^{-\frac{(x-\mu_{1})^2}{2\sigma_{1}^2}}
+    \frac{1}{\sqrt{2\pi}\sigma_{2}}e^{-\frac{(x-\mu_{2})^2}{2\sigma_{2}^2}}\\
+    =& \frac{1}{2\pi\sigma_{1}\sigma_{2}}e^{-(\frac{(x-\mu_{1})^2}{2\sigma_{1}^2} + \frac{(x-\mu_{2})^2}{2\sigma_{2}^2})}\\
+    \propto & Ce^{-\frac{(x-\frac{\sigma_{2}^2\mu_{1}+\sigma_{1}^2\mu_{2}}{\sigma_{1}^2+\sigma_{2}^2})^2}{\frac{2(\sigma_{1}\sigma_{2})^2}{\sigma_{1}^2+\sigma_{2}^2}}}\\
+    =& Ce^{-\frac{(x-\mu')^2}{2\sigma'^{2}}}\\
+    &\mu'=\frac{\sigma_{2}^2\mu_{1}+\sigma_{1}^2\mu_{2}}{\sigma_{1}^2+\sigma_{2}^2}\\
+    &\sigma'=\frac{\sigma_{1}\sigma_{2}}{\sqrt{\sigma_{1}^2+\sigma_{2}^2}}
+\end{align}
+
+\subsection{多维高斯}
+\begin{align}
+    \label{eq:multiDimGassian1}
+    &\frac{1}{\sqrt{2\pi}\sigma_{1}}e^{-\frac{(x_{1}-\mu_{1})^2}{2\sigma_{1}^2}}
+    \frac{1}{\sqrt{2\pi}\sigma_{2}}e^{-\frac{(x_{2}-\mu_{2})^2}{2\sigma_{2}^2}}
+    \dots
+    \frac{1}{\sqrt{2\pi}\sigma_{n}}e^{-\frac{(x_{n}-\mu_{n})^2}{2\sigma_{n}^2}}\\
+    =&\frac{1}{(2\pi)^{\frac{n}{2}}\prod_{i=1}^{n}\sigma_{i}}e^{-\sum_{i=1}^{n}\frac{(x_{i}-\mu_{i})^2}{2\sigma_{i}^2}}
+\end{align}
+\begin{align}
+    X =&
+    \begin{pmatrix}
+        x_{1}\\
+        x_{2}\\
+        \vdots\\
+        x_{n}
+    \end{pmatrix}\\
+    M =&
+    \begin{pmatrix}
+        \mu_{1}\\
+        \mu_{2}\\
+        \vdots\\
+        \mu_{n}
+    \end{pmatrix}\\
+    \Sigma^{-1} =&
+    \begin{pmatrix}
+        \frac{1}{\sigma_{1}^2} & 0 & \dots & 0\\
+        0 & \frac{1}{\sigma_{2}^2} & \dots & 0\\
+        \vdots & \vdots & \ddots & \vdots\\
+        0 & 0 & \dots & \frac{1}{\sigma_{n}^2}
+    \end{pmatrix}
+\end{align}
+式\ref{eq:multiDimGassian1}等于：
+\begin{align}
+    \label{eq:multiDimGassian2}
+    \frac{1}{(2\pi)^{\frac{n}{2}}(det(\Sigma))^{\frac{1}{2}}}e^{-\frac{1}{2}(X-M)^T\Sigma^{-1}(X-M)}
+\end{align}
+\\
+\begin{align}
+    \text{数据集包含m个n维数据}\ 
+    \bar{X}=\begin{pmatrix}
+        X^{1} & X^{2} & \dots & X^{m}
+    \end{pmatrix}
+\end{align}
+\begin{align}
+    \sigma_{ij} =& \frac{1}{m}\sum_{k=1}^{m}(x_{i}^{k}-\mu_{i})(x_{j}^{k}-\mu_{j})\\
+    \mu_{i}=&E(x_{i})= \frac{1}{m}\sum_{k=1}^{m}x_{i}^{k}
+\end{align}
+\begin{gather}
+    \Sigma = \begin{pmatrix}
+        \sigma_{ij}
+    \end{pmatrix}\\
+    \text{由于}\sigma_{ij}=\sigma_{ji}\text{, 所以, }\Sigma^{T}=\Sigma
+\end{gather}
+
+\subsection{一点线性代数}
+\begin{gather}
+    A=\begin{pmatrix}
+        a_{ij}
+    \end{pmatrix}\\
+    A^{\dagger}=(A^{T})^{*}\\
+    A^{\dagger}_{ij} = (a_{ji})^{*}
+\end{gather}
+\begin{gather}
+    A^{\dagger}=A\ (\text{即}(a_{ji})^{*}=a_{ij})\\
+    \text{若存在列向量}X\text{使得}AX=\lambda X,\ \lambda\text{是实数}\\
+    X^{\dagger}A=X^{\dagger}A^{\dagger}=(AX)^{\dagger}=(\lambda X)^{\dagger}=\lambda X^{\dagger}\\
+    AX_{1}=\lambda_{1} X_{1}\\
+    AX_{2}=\lambda_{2} X_{2}\\
+    \lambda_{2}X_{2}^{\dagger}X_{1}=(X_{2}^{\dagger}A)X_{1}=X_{2}^{\dagger}AX_{1}=X_{2}^{\dagger}(AX_{1})=\lambda_{1}X_{2}^{\dagger}X_{1}\\
+    \rightarrow \lambda_{2}=\lambda_{1}\ or\ X_{2}^{\dagger}X_{1}=0 \label{eq:OrthogonalEigenVector}
+\end{gather}
+
+\begin{gather}
+    \label{eq:eigenvalue1}
+    AX=\lambda X \rightarrow (A-\lambda I)X=0\\
+    I=\begin{pmatrix}
+        1 & 0 & \dots & 0\\
+        0 & 1 & \dots & 0\\
+        \vdots & \vdots & \ddots & \vdots\\
+        0 & 0 & \dots & 1
+    \end{pmatrix}
+\end{gather}
+式\ref{eq:eigenvalue1}有解，说明矩阵$(A-\lambda I)$的行(列)向量之间不是线性独立的，即：
+\begin{gather}
+    \label{eq:eigenvalue2}
+    det(A-\lambda I)=0
+\end{gather}
+式\ref{eq:eigenvalue2}是关于$\lambda$的$N=Dim(A)$元方程，可解得$\{\lambda_{1}\ \lambda_{2}\ \dots\ \lambda_{N}\}$，称为矩阵$A$的本征值。
+$A$的$N$个本征值对应$N$个本征向量$\{X_{1}\ X_{2}\ \dots\ X_{N}\}$
+（如果求得的是$\{n_{1}\times\lambda_{1}\ n_{2}\times\lambda_{2}\ \dots\ n_{k}\times\lambda_{k}\}(\sum^k_{i=1}n_{i}=N)$，
+$\lambda_{i}$对应一个$n_{i}$维的解空间，该空间所有的向量$X$都满足$AX=\lambda_{i} X$）。
+\begin{align}
+    U=&\begin{pmatrix}
+        X_{1} & X_{2} & \dots & X_{N}
+    \end{pmatrix}\\
+    \intertext{\hspace*{\fill}(根据式\ref{eq:OrthogonalEigenVector}, 有$U^{\dagger}U=I$, 即$U^{\dagger}=U^{-1}$)\hspace*{\fill}}\\
+    U^{\dagger}AU=&
+    \begin{pmatrix}
+        X_{1}^{\dagger} \\ X_{2}^{\dagger} \\ \vdots \\ X_{N}^{\dagger}
+    \end{pmatrix}
+    A
+    \begin{pmatrix}
+        X_{1} & X_{2} & \dots & X_{N}
+    \end{pmatrix}\\
+    =&
+    \begin{pmatrix}
+        X_{1}^{\dagger} \\ X_{2}^{\dagger} \\ \vdots \\ X_{N}^{\dagger}
+    \end{pmatrix}
+    \begin{pmatrix}
+        \lambda_{1}X_{1} & \lambda_{2}X_{2} & \dots & \lambda_{N}X_{N}
+    \end{pmatrix}\\
+    =&\begin{pmatrix}
+        \lambda_{1} &  &  & \\
+        & \lambda_{2} &  & \\
+        &  & \ddots & \\
+        &  &  & \lambda_{N}
+    \end{pmatrix}
+\end{align}
+
+\subsection{回到多维高斯函数}
+\begin{gather}
+    U^{-1}\Sigma'U = \Sigma = 
+    \begin{pmatrix}
+        \sigma_{1}^2 &  &  & \\
+        & \sigma_{2}^2 &  & \\
+        &  & \ddots & \\
+        &  &  & \sigma_{n}^2
+    \end{pmatrix}\\
+    \Sigma^{-1}=U^{-1}\Sigma'^{-1}U\\
+    X^{\dagger}\Sigma^{-1}X = X^{\dagger}U^{-1}\Sigma'^{-1}UX = X^{\dagger}U^{\dagger}\Sigma'^{-1}UX = (UX)^{\dagger}\Sigma'^{-1}UX\\
+    X' = UX\\
+    X^{\dagger}\Sigma^{-1}X = X'^{\dagger}\Sigma'^{-1}X'\\
+    \intertext{\hspace*{\fill}(实数情况下，$X^{\dagger} = X^{T}$, $U^{\dagger} = U^{T}$, $\Sigma^{\dagger}=\Sigma \rightarrow \Sigma^{T}=\Sigma$)\hspace*{\fill}}
+\end{gather}
+\begin{gather}
+    det(\Sigma') = det(U\Sigma U^{-1}) = det(U)\cdot det(\Sigma)\cdot det(U^{-1}) = det(\Sigma)
+\end{gather}
+忽略均值矩阵$M$，式\ref{eq:multiDimGassian2}等于：
+\begin{align}
+    \frac{1}{(2\pi)^{\frac{n}{2}}(det(\Sigma'))^{\frac{1}{2}}}e^{-\frac{1}{2}X'^T\Sigma'^{-1}X'}
+\end{align}
+
+
+\section{卡尔曼滤波}
