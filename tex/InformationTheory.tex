@@ -1,0 +1,45 @@
+\section{}
+\subsection{Jensen不等式与K-L散度}
+
+\begin{gather}
+    for \quad x_{1} < x_{2} < ... < x_{n}\\
+    a_{1}x_{1}+a_{2}x_{2}+...+a_{n}x_{n}\\
+    = 1\cdot x_{1}+(1-a_{1})\cdot(x_{2}-x_{1})+(1-a_{1}-a_{2})\cdot(x_{3}-x_{2})+\\
+    ...+(1-a_{1}-a_{2}-...-a_{n-1})\cdot(x_{n}-x_{n-1})\label{eq:1}\\
+    \intertext{\hspace*{\fill}(其中，$a_{i}>0$且$a_{1}+a_{2}+...+a_{n-1}+a_{n}=1$)\hspace*{\fill}}\\
+    c_{1}=1,\, c_{2}=1-a_{1},\, c_{3}=1-a_{1}-a_{2}\, ...\, c_{n}=1-a_{1}-a_{2}-...-a_{n-1}\\
+\end{gather}
+
+对于一个凸函数$f(x)$，用直线段$L_{i+1}$连接$(x_{i},f(x_{i}))$和$(x_{i+1},f(x_{i+1}))$，
+$\Delta x_{i} = x_{i}-x_{i-1}$和$\Delta f_{i} = f(x_{i})-f(x_{i-1})$是$L_{i}$在x-轴和y-轴的投影长度。
+
+将直线段$\{c_{2}L_{2},\,c_{3}L_{3},\,...\,,\,c_{n}L_{n}\}$按顺序首尾相接得到折线$L$，
+整体平移$L$使得$c_{2}L_{2}$端的起始点为$(x_{1},f(x_{1}))$，
+此时$c_{n}L_{n}$端的终点的x坐标即为式\ref{eq:1}的值，
+y坐标的值为：
+\begin{gather}
+    a_{1}f(x_{1})+a_{2}f(x_{2})+...+a_{n}f(x_{n})
+\end{gather}
+
+由图可知，$\{c_{2}L_{2},\,c_{3}L_{3},\,...\,,\,c_{n}L_{n}\}$整体永远位于$\{L_{2},\,L_{3},\,...\,,\,L_{n}\}$上方，
+所以，
+\begin{align}
+    y(\{c_{2}L_{2},\,c_{3}L_{3},\,...\,,\,c_{n}L_{n}\})
+    > y(\{L_{2},\,L_{3},\,...\,,\,L_{n}\})
+    \geq f(x)
+\end{align}
+即，
+\begin{align}
+    a_{1}f(x_{1})+a_{2}f(x_{2})+...+a_{n}f(x_{n})
+    \geq f(a_{1}x_{1}+a_{2}x_{2}+...+a_{n}x_{n})\quad (\text{Jensen不等式})
+\end{align}
+
+由Jensen不等式可知，K-L散度
+\begin{align}
+    &D_{KL}(P||Q)\\
+    =&(\sum_{i}-P_{i}ln(Q_{i}))-(\sum_{i}-P_{i}ln(P_{i}))\\
+    =&\sum_{i}-P_{i}ln(\frac{Q_{i}}{P_{i}})\\
+    \geq&-ln(\sum_{i}P_{i}\frac{Q_{i}}{P_{i}})\\
+    =&-ln(\sum_{i}Q_{i}) = 0\\
+    \intertext{($f(x)=-ln(x)$是凸函数，$P_{i}>0$，$Q_{i}>0$，$\sum_{i}P_{i}=1$，$\sum_{i}Q_{i}=1$)}
+\end{align}
