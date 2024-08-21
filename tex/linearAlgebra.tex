@@ -1,0 +1,70 @@
+\section{笔记}
+
+\subsection{}
+交换任意两行，行列式反号
+$\rightarrow$交换任意两列
+$\rightarrow$计算行列式某一项时，通过交换行，重新排列，使该项的所有元素都排列在对角线上，以确定该项的正负号
+$\rightarrow$转置矩阵则通过交换列重新排列使某一项的所有元素都排列在对角线上，由于转置后交换列相当于转置前交换行，
+至此证明了对于行列任一相同的项，转置前后其符号相同，即矩阵与其转置矩阵的行列式相等。
+
+\subsection{}
+\begin{gather}
+    det(A-\lambda I)=0
+    \rightarrow (\lambda - \lambda_{1})(\lambda - \lambda_{2})...(\lambda - \lambda_{N})=0
+\end{gather}
+(1) $\prod_{i}^{N} \lambda_{i}=det(A)$有两种证法：\\
+(1.1)  $\prod_{i}^{N}\lambda_{i}$即行列式$det(A-\lambda I)$展开的常数项，
+行列式$det(A-\lambda I)$和行列式$det(A)$均按形式展开，两者展开式中不包含对角元素的项（part1）完全相同，
+$det(A-\lambda I)$包含一个或多个对角元素$(A_{ii}-\lambda)$的项与$det(A)$包含一个或多个对角元素$A_{ii}$的项形式一致，
+把包含$(A_{ii}-\lambda)$的项的括号展开，分为包含$\lambda$（part2）与不包含$\lambda$（part3）两部分，
+则不包含$\lambda$的部分形式与$det(A)$包含对角元素$A_{ii}$的项完全相同，
+至此$det(A-\lambda I)$的形式展开项被分为part1、part2、part3三部分，其中不包含$\lambda$的part1和part3合起来等于$det(A)$，
+剩下的part2是包含至少一个$\lambda$的项。\\
+(1.2)
+\begin{gather}
+    U^{-1}AU
+    =\begin{pmatrix}
+        \lambda_{1} &  &  & \\
+         & \lambda_{2} &  & \\
+         &  & \ddots & \\
+         &  &  & \lambda_{N}
+    \end{pmatrix}\\
+    det(AB)=det(A)det(B)\\
+    det(A)=det(diag(\lambda_{1}, \lambda_{2}, ..., \lambda_{N}))=\prod_{i}^{N} \lambda_{i}
+\end{gather}
+(2) $\sum_{i}^{N} \lambda_{i}=trace(A)$
+\begin{gather}
+    trace(A)=\sum_{i}A_{ii}\\
+    C=AB, C_{ij}=\sum_{k}A_{ik}B_{kj}\\
+    trace(AB)=trace(C)=\sum_{i}C_{ii}=\sum_{i} \sum_{k}A_{ik}B_{ki}\\
+    trace(BA)=\sum_{i} (BA)_{ii} = \sum_{i} \sum_{k} B_{ik}A_{ki}\\
+    trace(AB)=trace(BA)
+\end{gather}
+\begin{align}
+    &trace(A)\\
+    =&trace(U
+    \begin{pmatrix}
+        \lambda_{1} &  &  & \\
+         & \lambda_{2} &  & \\
+         &  & \ddots & \\
+         &  &  & \lambda_{N}
+    \end{pmatrix}
+    U^{-1})\\
+    =&trace(U^{-1}U
+    \begin{pmatrix}
+        \lambda_{1} &  &  & \\
+         & \lambda_{2} &  & \\
+         &  & \ddots & \\
+         &  &  & \lambda_{N}
+    \end{pmatrix}
+    )\\
+    =&trace(
+    \begin{pmatrix}
+        \lambda_{1} &  &  & \\
+         & \lambda_{2} &  & \\
+         &  & \ddots & \\
+         &  &  & \lambda_{N}
+    \end{pmatrix}    
+    )\\
+    =&\sum_{i}^{N} \lambda_{i}
+\end{align}
