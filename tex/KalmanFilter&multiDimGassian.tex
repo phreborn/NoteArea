@@ -166,5 +166,80 @@ $\lambda_{i}$对应一个$n_{i}$维的解空间，该空间所有的向量$X$都
     \frac{1}{(2\pi)^{\frac{n}{2}}(det(\Sigma'))^{\frac{1}{2}}}e^{-\frac{1}{2}X'^T\Sigma'^{-1}X'}
 \end{align}
 
+\subsection{再议协方差矩阵}
+
+\begin{gather}
+    X^{k}=
+    \begin{pmatrix}
+        x_{1}^{k}\\
+        x_{2}^{k}\\
+        \vdots \\
+        x_{n}^{k}
+    \end{pmatrix}
+\end{gather}
+
+\begin{gather}
+    M=\begin{pmatrix}
+        \mu_{1}\\
+        \mu_{2}\\
+        \vdots \\
+        \mu_{n}
+    \end{pmatrix}
+    =\frac{1}{m}\sum_{k}^{m}
+    \begin{pmatrix}
+        x_{1}^{k}\\
+        x_{2}^{k}\\
+        \vdots \\
+        x_{n}^{k}
+    \end{pmatrix}
+    =\frac{1}{m}\sum_{k}^{m} X^{k}\\
+    \rightarrow M = \int p(x_{1},x_{2}...x_{n})
+    \begin{pmatrix}
+        x_{1}\\
+        x_{2}\\
+        \vdots \\
+        x_{n}
+    \end{pmatrix}
+    dx_{1}dx_{2}...dx_{n}
+    = \int p(X) X dX
+\end{gather}
+
+\begin{gather}
+    \Sigma = \frac{1}{m} \sum_{k}^{m}
+    \begin{pmatrix}
+        x_{1}^{k}-\mu_{1}\\
+        x_{2}^{k}-\mu_{2}\\
+        \vdots \\
+        x_{x}^{k}-\mu_{n}
+    \end{pmatrix}
+    \begin{pmatrix}
+        x_{1}^{k}-\mu_{1}&x_{2}^{k}-\mu_{2}&...&x_{n}^{k}-\mu_{n}
+    \end{pmatrix}
+    =\frac{1}{m} \sum_{k}^{m} (X^{k}-M)(X^{k}-M)^{T}\\
+    \rightarrow \Sigma = \int p(x_{1},x_{2}...x_{n})
+    \begin{pmatrix}
+        x_{1}-\mu_{1}\\
+        x_{2}-\mu_{2}\\
+        \vdots \\
+        x_{x}-\mu_{n}
+    \end{pmatrix}
+    \begin{pmatrix}
+        x_{1}-\mu_{1}&x_{2}-\mu_{2}&...&x_{n}-\mu_{n}
+    \end{pmatrix}
+    dx_{1}dx_{2}...dx_{n}\\
+    = \int p(X) (X-M)(X-M)^{T} dX
+\end{gather}
+
+\begin{gather}
+    X\rightarrow X'=UX\\
+    M\rightarrow M'=UM\\
+\end{gather}
+\begin{align}
+    \Sigma \rightarrow \Sigma'
+    =& \frac{1}{m} \sum_{k}^{m} (X'^{k}-M')(X'^{k}-M')^{T}\\
+    =& \frac{1}{m} \sum_{k}^{m} (UX^{k}-UM)(UX^{k}-UM)^{T}\\
+    =& \frac{1}{m} \sum_{k}^{m} U(X^{k}-M)(X^{k}-M)^{T}U^{T}\\
+    =& U \Sigma U^{T}
+\end{align}
 
 \section{卡尔曼滤波}
