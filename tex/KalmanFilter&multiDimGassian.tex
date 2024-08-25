@@ -210,7 +210,7 @@ $\lambda_{i}$对应一个$n_{i}$维的解空间，该空间所有的向量$X$都
         x_{1}^{k}-\mu_{1}\\
         x_{2}^{k}-\mu_{2}\\
         \vdots \\
-        x_{x}^{k}-\mu_{n}
+        x_{n}^{k}-\mu_{n}
     \end{pmatrix}
     \begin{pmatrix}
         x_{1}^{k}-\mu_{1}&x_{2}^{k}-\mu_{2}&...&x_{n}^{k}-\mu_{n}
@@ -221,7 +221,7 @@ $\lambda_{i}$对应一个$n_{i}$维的解空间，该空间所有的向量$X$都
         x_{1}-\mu_{1}\\
         x_{2}-\mu_{2}\\
         \vdots \\
-        x_{x}-\mu_{n}
+        x_{n}-\mu_{n}
     \end{pmatrix}
     \begin{pmatrix}
         x_{1}-\mu_{1}&x_{2}-\mu_{2}&...&x_{n}-\mu_{n}
@@ -241,5 +241,51 @@ $\lambda_{i}$对应一个$n_{i}$维的解空间，该空间所有的向量$X$都
     =& \frac{1}{m} \sum_{k}^{m} U(X^{k}-M)(X^{k}-M)^{T}U^{T}\\
     =& U \Sigma U^{T}
 \end{align}
+
+在
+\begin{gather}
+    X\rightarrow X'=f(X) =
+    \begin{pmatrix}
+        x'_{1}(x_{1},x_{2}...x_{n})\\
+        x'_{2}(x_{1},x_{2}...x_{n})\\
+        \vdots\\
+        x'_{2}(x_{1},x_{2}...x_{n})
+    \end{pmatrix}
+\end{gather}
+变换下，概率密度$p(X)dX = p'(X')dX'$保持不变
+\begin{gather}
+    \frac{p'(X')}{p(X)}=\frac{dX}{dX'}
+\end{gather}
+上式右边代表的是微元$dX$和微元$dX'$的体积比，实际可用雅可比行列式计算：
+\begin{gather}
+    \left | \left |
+    \begin{matrix}
+        \frac{dX}{dX'}
+    \end{matrix}
+    \right | \right |
+    = \left | \left |
+    \begin{matrix}
+        \frac{\partial x_{1}}{\partial x'_{1}} & \frac{\partial x_{1}}{\partial x'_{2}} & ... & \frac{\partial x_{1}}{\partial x'_{n}}\\
+        \frac{\partial x_{2}}{\partial x'_{1}} & \frac{\partial x_{2}}{\partial x'_{2}} & ... & \frac{\partial x_{2}}{\partial x'_{n}}\\
+        \vdots & \vdots & \ddots & \vdots\\
+        \frac{\partial x_{n}}{\partial x'_{1}} & \frac{\partial x_{n}}{\partial x'_{2}} & ... & \frac{\partial x_{n}}{\partial x'_{n}}
+    \end{matrix}
+    \right | \right |
+\end{gather}
+
+\begin{gather}
+    p'(X') = p(X)
+    \left | \left |
+    \begin{matrix}
+        \frac{dX}{dX'}
+    \end{matrix}
+    \right | \right |
+    = p(f^{-1}(X'))
+    \left | \left |
+    \begin{matrix}
+        \frac{dX}{dX'}
+    \end{matrix}
+    \right | \right |
+\end{gather}
 
 \section{卡尔曼滤波}

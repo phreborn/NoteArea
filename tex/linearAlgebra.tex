@@ -68,3 +68,54 @@ $det(A-\lambda I)$包含一个或多个对角元素$(A_{ii}-\lambda)$的项与$d
     )\\
     =&\sum_{i}^{N} \lambda_{i}
 \end{align}
+
+\subsection{雅可比行列式}
+
+坐标系变换
+\begin{gather}
+    (x,y)\rightarrow (\mu(x,y),\nu(x,y))
+\end{gather}
+新坐标系下微元$d\mu d\nu$表示向量$(d\mu \bm{\overrightarrow{\mu}},0\bm{\overrightarrow{\nu}})$和$(0\bm{\overrightarrow{\mu}},d\nu \bm{\overrightarrow{\nu}})$围成的长方形的面积，
+对应到原坐标系下的微元区域为向量$(\frac{\partial x}{\partial \mu}d\mu\bm{\overrightarrow{x}},\frac{\partial y}{\partial \mu}d\mu\bm{\overrightarrow{y}})$
+和$(\frac{\partial x}{\partial \nu}d\nu\bm{\overrightarrow{x}},\frac{\partial y}{\partial \nu}d\nu\bm{\overrightarrow{y}})$围成的平行四边形，
+其面积为：
+\begin{gather}
+    \left | \left |
+    \begin{matrix}
+        \frac{\partial x}{\partial \mu}d\mu & \frac{\partial y}{\partial \mu}d\mu\\
+        \frac{\partial x}{\partial \nu}d\nu & \frac{\partial y}{\partial \nu}d\nu
+    \end{matrix}
+    \right | \right |
+    =\left | \left |
+    \begin{matrix}
+        \frac{\partial x}{\partial \mu} & \frac{\partial y}{\partial \mu}\\
+        \frac{\partial x}{\partial \nu} & \frac{\partial y}{\partial \nu}
+    \end{matrix}
+    \right | \right | d\mu d\nu
+\end{gather}
+
+$f(x,y)$在微元$dxdy$区域内的积分为$f(x,y)dxdy$，
+在微元$d\mu d\nu$对应的原$x-y$坐标系下的区域的积分为
+\begin{gather}
+    f(x,y)
+    \left | \left |
+    \begin{matrix}
+        \frac{\partial x}{\partial \mu} & \frac{\partial y}{\partial \mu}\\
+        \frac{\partial x}{\partial \nu} & \frac{\partial y}{\partial \nu}
+    \end{matrix}
+    \right | \right | d\mu d\nu
+    =f(x(\mu,\nu),y(\mu,\nu))
+    \left | \left |
+    \begin{matrix}
+        \frac{\partial x}{\partial \mu} & \frac{\partial y}{\partial \mu}\\
+        \frac{\partial x}{\partial \nu} & \frac{\partial y}{\partial \nu}
+    \end{matrix}
+    \right | \right | d\mu d\nu
+    =g(\mu,\nu)
+    \left | \left |
+    \begin{matrix}
+        \frac{\partial x}{\partial \mu} & \frac{\partial y}{\partial \mu}\\
+        \frac{\partial x}{\partial \nu} & \frac{\partial y}{\partial \nu}
+    \end{matrix}
+    \right | \right | d\mu d\nu
+\end{gather}
