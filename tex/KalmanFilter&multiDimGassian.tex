@@ -288,4 +288,91 @@ $\lambda_{i}$对应一个$n_{i}$维的解空间，该空间所有的向量$X$都
     \right | \right |
 \end{gather}
 
+\subsection{转动惯量平行轴定理}
+
+%\begin{gather}
+%    m=\int \rho(x,y)dxdy\\
+%    \mu_{x}=\int \rho(x,y)xdxdy\\
+%    \mu_{y}=\int \rho(x,y)ydxdy\\
+%    I_{\mu} = \int \rho(x,y)((x-\mu_{x})^{2}+(y-\mu_{y})^{2})dxdy\\
+%    \int \rho(x,y)((x-x_{a})^{2}+(y-y_{a})^{2})dxdy\\
+%    =\int \rho(x,y)(((x-\mu_{x})-(x_{a}-\mu_{x}))^{2}+((y-\mu_{y})-(y_{a}-\mu_{y}))^{2})dxdy\\
+%    =\int \rho(x,y)((x-\mu_{x})^{2}+(y-\mu_{y})^{2}\\
+%    +(x_{a}-\mu_{x})^{2}+(y_{a}-\mu_{y})^{2}\\
+%    -2(x-\mu_{x})(x_{a}-\mu_{x})-2(y-\mu_{y})(y_{a}-\mu_{y}))dxdy\\
+%    =I_{\mu}+m((x_{a}-\mu_{x})^{2}+(y_{a}-\mu_{y})^{2})+0
+%\end{gather}
+
+\begin{gather}
+    \overrightarrow{r}=
+    \begin{pmatrix}
+        x_{1}\\
+        x_{2}\\
+        \vdots\\
+        x_{n}
+    \end{pmatrix}
+    \quad
+    d\bm{r} = dx_{1}dx_{2}...dx_{n}\\
+    m=\int \rho(\overrightarrow{r})d\bm{r}\\
+    \overrightarrow{\mu}=\int \rho(\overrightarrow{r})\overrightarrow{r}d\bm{r}\\
+    I_{\mu} = \int \rho(\overrightarrow{r})(\overrightarrow{r}-\overrightarrow{\mu})^{2}d\bm{r}\\
+    \int \rho(\overrightarrow{r})(\overrightarrow{r}-\overrightarrow{r_{A}})^{2}d\bm{r}\\
+    =\int \rho(\overrightarrow{r})((\overrightarrow{r}-\overrightarrow{\mu})-(\overrightarrow{r_{A}}-\overrightarrow{\mu}))^{2}d\bm{r}\\
+    =\int \rho(\overrightarrow{r})((\overrightarrow{r}-\overrightarrow{\mu})^{2}
+    +(\overrightarrow{r_{A}}-\overrightarrow{\mu})^{2}
+    -2(\overrightarrow{r}-\overrightarrow{\mu})\cdot(\overrightarrow{r_{A}}-\overrightarrow{\mu}))d\bm{r}\\
+    =I_{\mu}+m(\overrightarrow{r_{A}}-\overrightarrow{\mu})^{2}+0
+\end{gather}
+
+\subsubsection{分辨率与卷积}
+
+假定一个观测量$x$的自然分布为$p_{nature}(x)$，对任何观测量的测量都是不可能完全精确的，用分辨率来描述测量的精确度，
+考虑分辨率后观测量$x$的测量分布为：
+\begin{gather}
+    \label{eq:reso1}
+    p_{measure}(x)=\int p_{nature}(x')R(x-x',\sigma_{R}(x'))dx'
+\end{gather}
+$R(x-x',\sigma_{R}(x'))$表示当观测量的真实值为$x'$的时候，测量值$x$的分布，
+$\sigma_{R}(x')$是$R$分布的标准差，
+对于一个好的测量，其$R$分布的中心值为真实值$x'$。
+如果假定$R$分布的标准差与观测量的真实值$x'$无关，则式\ref{eq:reso1}变为$p_{nature}(x')$和$R(x-x')$的卷积：
+\begin{gather}
+    p_{measure}(x)=\int p_{nature}(x')R(x-x',\sigma_{R})dx'
+\end{gather}
+
+\begin{gather}
+    \mu=\int p_{nature}(x)xdx\\
+    \sigma^{2} = \int p_{nature}(x)(x-\mu)^{2}dx
+\end{gather}
+\begin{align}
+    &\int p_{measure}(x)xdx\\
+    =&\int \int p_{nature}(x')R(x-x',\sigma_{R}) x dx'dx\\
+    =&\int (\int R(x-x',\sigma_{R}) xdx)p_{nature}(x') dx'\\
+    =&\int x'p_{nature}(x') dx'\\
+    =&\mu
+\end{align}
+\begin{align}
+    &\int p_{measure}(x)(x-\mu)^{2}dx\\
+    =&\int p_{measure}(x)((x-x')-(\mu-x'))^{2}dx\\
+    =&\int (\int p_{nature}(x')R(x-x',\sigma_{R})dx')((x-x')^{2}+(\mu-x')^{2}-2(x-x')(\mu-x'))dx\\
+    =&\int p_{nature}(x') (\int R(x-x',\sigma_{R})((x-x')^{2}+(\mu-x')^{2}-2(x-x')(\mu-x'))dx)dx'\\
+    =&\int p_{nature}(x') (\sigma_{R}^{2}+(\mu-x')^{2}-0)dx'\\
+    =&\sigma_{R}^{2}+\sigma^{2}
+    \label{eq:measuredSigma}
+\end{align}
+式\ref{eq:measuredSigma}表明，如果$\sigma_{R}$不依赖于观测量真实值$x'$，
+则$x$的测量分布的方差为其自然分布方差与分辨率$\sigma_{R}$的平方的和。
+
+事实上，类比转动惯量的平行轴定理：
+\begin{gather}
+    p(x')dx'\rightarrow m\\
+    R(x-x',\sigma_{R})\rightarrow \rho(\overrightarrow{r})\\
+    \sigma_{R}\rightarrow I_{\mu}\\
+    p(x')dx'(x'-\mu)^{2}+\sigma_{R}\rightarrow m(\overrightarrow{\mu} -\overrightarrow{r_{A}})^{2}+I_{\mu}\label{eq:analogy1}
+\end{gather}
+式\ref{eq:analogy1}左边对$x'$积分：
+\begin{gather}
+    \int p(x')dx'(x'-\mu)^{2} + \int p(x')dx'\sigma_{R}=\sigma+\sigma_{R}
+\end{gather}
+
 \section{卡尔曼滤波}
