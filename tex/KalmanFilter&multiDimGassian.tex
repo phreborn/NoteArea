@@ -367,12 +367,28 @@ $\sigma_{R}(x')$是$R$分布的标准差，
 \begin{gather}
     p(x')dx'\rightarrow m\\
     R(x-x',\sigma_{R})\rightarrow \rho(\overrightarrow{r})\\
-    \sigma_{R}\rightarrow I_{\mu}\\
-    p(x')dx'(x'-\mu)^{2}+\sigma_{R}\rightarrow m(\overrightarrow{\mu} -\overrightarrow{r_{A}})^{2}+I_{\mu}\label{eq:analogy1}
+    \sigma_{R}^{2}\rightarrow I_{\mu}\\
+    p(x')dx'(x'-\mu)^{2}+\sigma_{R}^{2}\rightarrow m(\overrightarrow{\mu} -\overrightarrow{r_{A}})^{2}+I_{\mu}\label{eq:analogy1}
 \end{gather}
 式\ref{eq:analogy1}左边对$x'$积分：
 \begin{gather}
-    \int p(x')dx'(x'-\mu)^{2} + \int p(x')dx'\sigma_{R}=\sigma+\sigma_{R}
+    \int p(x')dx'(x'-\mu)^{2} + \int p(x')dx'\sigma_{R}^{2}=\sigma^{2}+\sigma_{R}^{2}
 \end{gather}
 
 \section{卡尔曼滤波}
+
+简单地概括一下卡尔曼滤波的思想，
+从一个初始状态出发，初始状态包括初始状态及其误差，
+利用（理论）模型将一个时刻的状态作为输入，预测下一个时刻的状态，误差通过模型也可以传递到下一个时刻，
+模型可拆解为三部分：无外部干涉下系统的自演化、外部干涉对系统的改变、未纳入建模的其它环境扰动因素，
+假定可建模部分的模型能完美描述纳入模型考虑的实际情况，则预测的不确定性仅来自未纳入建模的扰动因素
+\footnote{
+    预测分为：可建模部分、缺乏足够认识或建模复杂度比较高而难建模的部分，
+    将可建模部分拆解为两部分：无外部干涉下系统的自演化、外部干涉对系统的改变，
+    预测的误差包括：建模部分的误差、缺少建模导致的不确定性，
+    建模部分的误差包括：理论不能完美描述实际情况、模型的计算精度
+}，
+预测本身含有的不确定性和作为输入的上一状态的误差共同构成预测结果的误差，
+对某一个时刻的预测值及其误差构成该时刻的预测分布，
+对某个时刻的状态进行测量，测量值及测量仪器的精度范围构成该时刻的测量分布，
+综合两个分布的“意见”，取一个折衷方案，将两个分布相乘得到新的分布，新分布的最概然值和标准差确定为当前状态值及其误差。
