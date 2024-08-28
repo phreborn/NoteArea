@@ -7,6 +7,168 @@ $\rightarrow$计算行列式某一项时，通过交换行，重新排列，使�
 $\rightarrow$转置矩阵则通过交换列重新排列使某一项的所有元素都排列在对角线上，由于转置后交换列相当于转置前交换行，
 至此证明了对于行列任一相同的项，转置前后其符号相同，即矩阵与其转置矩阵的行列式相等。
 
+\subsection{矩阵相乘的行列式}
+
+\begin{gather}
+    for\,
+    \begin{pmatrix}
+        a_{i1} & a_{i2} & ... & a_{in}
+    \end{pmatrix}
+    =\begin{pmatrix}
+        b_{i1} & b_{i2} & ... & b_{in}
+    \end{pmatrix}
+    +\begin{pmatrix}
+        c_{i1} & c_{i2} & ... & c_{in}
+    \end{pmatrix}\\
+    =\begin{pmatrix}
+        b_{i1}+c_{i1} & b_{i2}+c_{i2} & ... & b_{in}+c_{in}
+    \end{pmatrix}\\
+    \left |
+    \begin{matrix}
+        a_{11} & a_{12} & ... & a_{1n}\\
+        a_{21} & a_{22} & ... & a_{2n}\\
+        \vdots & \vdots & ... & \vdots\\
+        a_{i1} & a_{i2} & ... & a_{in}\\
+        \vdots & \vdots & ... & \vdots\\
+        a_{n1} & a_{n2} & ... & a_{nn}\\
+    \end{matrix}
+    \right |
+    =    \left |
+    \begin{matrix}
+        a_{11} & a_{12} & ... & a_{1n}\\
+        a_{21} & a_{22} & ... & a_{2n}\\
+        \vdots & \vdots & ... & \vdots\\
+        b_{i1} & b_{i2} & ... & _{in}\\
+        \vdots & \vdots & ... & \vdots\\
+        a_{n1} & a_{n2} & ... & a_{nn}\\
+    \end{matrix}
+    \right |
+    +    \left |
+    \begin{matrix}
+        a_{11} & a_{12} & ... & a_{1n}\\
+        a_{21} & a_{22} & ... & a_{2n}\\
+        \vdots & \vdots & ... & \vdots\\
+        c_{i1} & c_{i2} & ... & c_{in}\\
+        \vdots & \vdots & ... & \vdots\\
+        a_{n1} & a_{n2} & ... & a_{nn}\\
+    \end{matrix}
+    \right |
+    \label{eq:detAdd}
+\end{gather}
+
+\begin{gather}
+    \left | AB \right |
+    =\left | \begin{matrix}
+    \begin{matrix}
+        \quad A_{11}\times\begin{pmatrix}
+            B_{11} & B_{12} & ... & B_{1n}
+        \end{pmatrix}\\
+        +A_{12}\times\begin{pmatrix}
+            B_{21} & B_{22} & ... & B_{2n}
+        \end{pmatrix}\\
+        \vdots\\
+        +A_{1n}\times\begin{pmatrix}
+            B_{n1} & B_{n2} & ... & B_{nn}
+        \end{pmatrix}\\
+    \end{matrix}\\
+    \\
+    \begin{matrix}
+        \quad A_{21}\times\begin{pmatrix}
+            B_{11} & B_{12} & ... & B_{1n}
+        \end{pmatrix}\\
+        +A_{22}\times\begin{pmatrix}
+            B_{21} & B_{22} & ... & B_{2n}
+        \end{pmatrix}\\
+        \vdots\\
+        +A_{2n}\times\begin{pmatrix}
+            B_{n1} & B_{n2} & ... & B_{nn}
+        \end{pmatrix}\\
+    \end{matrix}\\
+    \\
+    \vdots\\
+    \\
+    \begin{matrix}
+        \quad A_{n1}\times\begin{pmatrix}
+            B_{11} & B_{12} & ... & B_{1n}
+        \end{pmatrix}\\
+        +A_{n2}\times\begin{pmatrix}
+            B_{21} & B_{22} & ... & B_{2n}
+        \end{pmatrix}\\
+        \vdots\\
+        +A_{nn}\times\begin{pmatrix}
+            B_{n1} & B_{n2} & ... & B_{nn}
+        \end{pmatrix}\\
+    \end{matrix}\\
+    \end{matrix} \right |
+    \label{eq:ABdetExpansion}
+\end{gather}
+由于交换矩阵的任意两行，行列式反号，如果矩阵中有任意两行完全相同，则其行列式为零。
+将式\ref{eq:ABdetExpansion}按式\ref{eq:detAdd}展开，只有如下形式的项不为零：
+\begin{gather}
+    \left | \begin{matrix}
+    A_{1p(1)}\times\begin{pmatrix}
+        B_{p(1)1} & B_{p(1)2} & ... & B_{p(1)n}\\
+    \end{pmatrix}\\
+    A_{2p(2)}\times\begin{pmatrix}
+        B_{p(2)1} & B_{p(2)2} & ... & B_{p(2)n}\\
+    \end{pmatrix}\\
+    \vdots\\
+    A_{np(n)}\times\begin{pmatrix}
+        B_{p(n)1} & B_{p(n)2} & ... & B_{p(n)n}\\
+    \end{pmatrix}\\
+    \end{matrix} \right |
+    \label{eq:ABdetExpansion2}
+\end{gather}
+其中$p$是$n$个对象的一个置换变换。
+交换式\ref{eq:ABdetExpansion2}各行的顺序变为：
+\begin{gather}
+    \left | \begin{matrix}
+        A_{p^{-1}(1)1}\times\begin{pmatrix}
+            B_{11} & B_{12} & ... & B_{1n}\\
+        \end{pmatrix}\\
+        A_{p^{-1}(2)2}\times\begin{pmatrix}
+            B_{21} & B_{22} & ... & B_{2n}\\
+        \end{pmatrix}\\
+        \vdots\\
+        A_{p^{-1}(n)n}\times\begin{pmatrix}
+            B_{n1} & B_{n2} & ... & B_{nn}\\
+        \end{pmatrix}\\
+    \end{matrix} \right |
+\end{gather}
+交换前后行列式的值相差一个正负号$(-1)^{p}$。
+式\ref{eq:ABdetExpansion}所有不为零的展开项相加得到：
+\begin{align}
+    &\sum_{i=1}^{n!} (-1)^{p_{i}}
+    \left | \begin{matrix}
+        A_{p_{i}^{-1}(1)1}\times\begin{pmatrix}
+            B_{11} & B_{12} & ... & B_{1n}\\
+        \end{pmatrix}\\
+        A_{p_{i}^{-1}(2)2}\times\begin{pmatrix}
+            B_{21} & B_{22} & ... & B_{2n}\\
+        \end{pmatrix}\\
+        \vdots\\
+        A_{p_{i}^{-1}(n)n}\times\begin{pmatrix}
+            B_{n1} & B_{n2} & ... & B_{nn}\\
+        \end{pmatrix}\\
+    \end{matrix} \right |\\
+    =&\sum_{i=1}^{n!} (-1)^{p_{i}}
+    A_{p_{i}^{-1}(1)1}A_{p_{i}^{-1}(2)2}...A_{p_{i}^{-1}(n)n}
+    \times \left | \begin{matrix}
+        B_{11} & B_{12} & ... & B_{1n}\\
+        B_{21} & B_{22} & ... & B_{2n}\\
+        \vdots\\
+        B_{n1} & B_{n2} & ... & B_{nn}
+    \end{matrix} \right |\\
+    =&\left | B \right |
+    \sum_{i=1}^{n!} (-1)^{p_{i}}
+    A_{p_{i}^{-1}(1)1}A_{p_{i}^{-1}(2)2}...A_{p_{i}^{-1}(n)n}\\
+    =&\left | B \right |
+    \sum_{i=1}^{n!} (-1)^{p_{i}}
+    A_{1p_{i}(1)}A_{2p_{i}(2)}...A_{np_{i}(n)}\\
+    =&\left | B \right |
+    \left | A \right |
+\end{align}
+
 \subsection{}
 \begin{gather}
     det(A-\lambda I)=0
