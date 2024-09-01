@@ -1,0 +1,33 @@
+\section{群论基础}
+
+\subsection{}
+
+\subsection{左移、右移和划分}
+
+$a\in G$，群的左移$aG$、右移$Ga$。
+
+群$H$是群$G$的一个子群，$H$的左移$aH(a\in G)$构成一个群元素的集合。
+
+如果$b\in aH$，
+我们可以设$b= ah_{i},\,h_{i}\in H$，
+%h_{i}\in H\,and\,H\,is\,a\,group\rightarrow h_{i}^{-1}\in H\\
+则$bH=ah_{i}H$，
+由于$H$是一个群，所以集合$H$等于集合$h_{i}H$，
+所以$bH=a(h_{i}H)=aH$。
+
+等价关系$b\in aH\rightleftharpoons a\in bH$可以用于将G的元素划分为互斥的多个集合
+$\{g_{1}H,g_{2}H...g_{n}H\ |\ g_{i}H\cap g_{j}H=\emptyset\}$，
+且$g_{1}H\cup g_{2}H\cup ...\cup g_{n}H=G$。
+
+右移$Ha$同理。
+
+对于$aHa^{-1}$，同样的推理过程
+\begin{gather}
+    b\in aHa^{-1}\\
+    b=ah_{i}a^{-1},\ h_{i}\in H\\
+    bHb^{-1}=ah_{i}a^{-1}Hah_{i}^{-1}a^{-1}\\
+    if\ H=a^{-1}Ha,\rightarrow
+    \ bHb^{-1}=ah_{i}(a^{-1}Ha)h_{i}^{-1}a^{-1}=ah_{i}Hh_{i}^{-1}a^{-1}=aHa^{-1}
+\end{gather}
+如果对于$G$的任意群元素$a$有$H=aHa^{-1}$，
+则$b\in aHa^{-1}\rightleftharpoons a\in bHb^{-1}$构成一个等价关系。
