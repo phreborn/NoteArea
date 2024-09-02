@@ -2,6 +2,14 @@
 
 \subsection{}
 
+\noindent 集合+元素间的二元运算
+\begin{itemize}
+    \item 封闭性
+    \item 满足结合律
+    \item 存在幺元
+    \item 存在逆元
+\end{itemize}
+
 \subsection{左移、右移和划分}
 
 $a\in G$，群的左移$aG$、右移$Ga$。
@@ -33,3 +41,24 @@ $\{g_{1}H,g_{2}H...g_{n}H\ |\ g_{i}H\cap g_{j}H=\emptyset\}$，
 %如果对于$G$的任意群元素$a$有$H=aHa^{-1}$，
 %则$b\in aHa^{-1}\rightleftharpoons a\in bHb^{-1}$构成一个等价关系。
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{群同态和商群}
+
+$\forall\ a\in G:\ aH=_{S}Ha\ (or\ H=_{S}aHa^{-1})$
+\footnote{$=_{S}$表示集合相等，$=_{G}$表示群同构，$H \leq_{G} G$表示群$H$是群$G$的子群}，
+称$H$为$G$的一个正规子群。
+
+$aHbH=_{S}abHH=_{S}abH$，正规子群的左移之间的运算结果仍然是正规子群的一个左移（封闭性）。
+
+$aHH=_{S}aH,\ HaH=_{S}aHH=_{S}aH$，正规子群与其任一个左移之间的运算得到该左移自身（存在幺元）。
+
+$aHa^{-1}H=_{S}aa^{-1}HH=_{S}HH=_{S}H$，群元素$a$及其逆元$a^{-1}$作用于正规子群$H$得到的左移之间的运算得到正规子群$H$自身（存在逆元）。
+\\
+
+群映射$\phi:G\rightarrow H$满足$\phi(ab)=\phi(a)\phi(b)\ (a,b\in G)$
+
+$Ker\ \phi=\{a\ |\ a\in G,\ \phi(a)h=h\ (\forall h\in H)\}$
+
+$Im\ \phi=\{h=\phi(a)\ |\ \forall a\in G\}\subseteq H$
+
+
