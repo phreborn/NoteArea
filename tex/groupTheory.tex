@@ -6,9 +6,17 @@
 \begin{itemize}
     \item 封闭性
     \item 满足结合律
-    \item 存在幺元
-    \item 存在逆元
+    \item 存在左幺元
+    \item 存在左逆元
 \end{itemize}
+
+$b$是$a$的左逆元，$ba=1$。
+问$ab=?$
+看看定义中有什么规则可以利用，看到第三项，$ab=e_{L}ab$。
+然后呢？看到定义第四项，有$\forall\ g\in G:\ e_{L}=g^{-1}g$。
+$g$取什么好？看到$e_{L}ab$中有关系的有$a$、$b$，尝试$a^{-1}a$和$b^{-1}b$，
+发现$b^{-1}bab=b^{-1}(ba)b=b^{-1}e_{L}b=b^{-1}b=e_{L}$，
+所以，$ab=e_{L}$，$b$也是$a$的右幺元。
 
 \subsection{左移、右移和划分}
 
@@ -55,10 +63,39 @@ $aHH=_{S}aH,\ HaH=_{S}aHH=_{S}aH$，正规子群与其任一个左移之间的�
 $aHa^{-1}H=_{S}aa^{-1}HH=_{S}HH=_{S}H$，群元素$a$及其逆元$a^{-1}$作用于正规子群$H$得到的左移之间的运算得到正规子群$H$自身（存在逆元）。
 \\
 
+反之，如果$H$是$G$的一个子群，满足$\forall\ a,b\in G:aHbH=_{S}abH$，
+则$aHa^{-1}H=_{S}aa^{-1}H=_{S}H
+\rightarrow \forall\ h\in H:aha^{-1}=ah(\in aH)a^{-1}e_{H}(\in a^{-1}H)\in aHa^{-1}H=_{S}H
+\rightarrow aHa^{-1}=_{S}H$。
+\\
+
 群映射$\phi:G\rightarrow H$满足$\phi(ab)=\phi(a)\phi(b)\ (a,b\in G)$
+\footnote{此处，符号$H$不表示$G$的正规子群}
 
 $Ker\ \phi=\{a\ |\ a\in G,\ \phi(a)h=h\ (\forall h\in H)\}$
 
 $Im\ \phi=\{h=\phi(a)\ |\ \forall a\in G\}\subseteq H$
+\\
 
+$e_{H}$是群$H$的幺元，$\forall\ k\in\ Ker\ \phi:\ \phi(k)=e_{H}$。
+
+$\forall\ k_{1},k_{2}\in Ker\ \phi:\ \phi(k_{1}k_{2})=\phi(k_{1})\phi(k_{2})=e_{H}e_{H}=e_{H}
+\rightarrow k_{1}k_{2}\in Ker\ \phi$，
+所以，$K=Ker\ \phi$是$G$的一个子群。
+（存在幺元：$e_{G}$是群$G$的幺元，
+$\forall\ a\in G:\ \phi(e_{G})\phi(a)=\phi(e_{G}a)=\phi(a)\rightarrow \phi(e_{G})=e_{H}$；
+存在逆元：$\forall\ k\in K:\ \phi(kk^{-1})=\phi(k)\phi(k^{-1})=e_{H}\phi(k^{-1}),
+\ \phi(kk^{-1})=\phi(e_{G})=\ e_{H}
+\rightarrow \phi(k^{-1})=e_{H}\rightarrow k^{-1}\in K$）
+
+$A=\{a\ |\ \phi(a)=h_{A}, a\in G\}$，
+$\forall\ a\in A,\ \forall\ k\in K:\ \phi(ak)=\phi(a)\phi(k)=h_{A}e_{H}=h_{A}
+\rightarrow ak\in A
+\rightarrow aK\subseteq A$
+
+$A^{-1}=\{a^{-1}\ |\ \phi(a^{-1})=h_{A^{-1}}=h_{A}^{-1}, a^{-1}\in G\}$，
+$\forall\ a\in A,\ \forall\ a^{-1}\in A^{-1},\ \forall\ k\in K:\ \phi(aka^{-1})=\phi(a)\phi(k)\phi(a^{-1})=h_{A}e_{H}h_{A}^{-1}=e_{H}
+\rightarrow aka^{-1}\in K
+\rightarrow aKa^{-1}=_{S} K$
+（$=_{S}$号成立，因为集合$aKa^{-1}$元素的个数等于集合$K$元素的个数）
 
