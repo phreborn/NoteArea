@@ -1,0 +1,31 @@
+\section{学习笔记}
+
+\noindent\textbf{孟道骥书\cite{meng2010}theo4.2.2p123}\\
+
+\noindent $x$的轨道$O_{x}=\{y\ |\ y=g(x),\ \forall g\in G\}$\\
+$x$的迷向子群$Fx=\{g\ |\ g\in G,\ g(x)=x\}$\\
+
+\noindent$\forall\ y \in O_{x}:\exists g\in G:y=g(x)$\\
+$\rightarrow \forall\ f\in F_{x}:gfg^{-1}(y)=gf(x)=g(x)=y$\\
+$\rightarrow gF_{x}g^{-1}\subseteq F_{y}$\\
+
+\noindent 如果$\exists g\in G:g\neq e_{G},\ \forall x\in X:g(x)=x$\\
+则$g\in \cap_{i=1}^{m} F_{x_{i}}= F_{x_{1}}\cap F_{x_{2}}...\cap F_{x_{m}} \ (x_{i}\in X,\ m=|X|)$\\
+由于$F_{x_{i}}$是群，所以$\cap_{i=1}^{|X|} F_{x_{i}}$也是群\\
+
+\noindent 要证明theo4.2.2(2)：$G$在$O_{x}$上作用有效$\rightleftharpoons$$F_{x}$中所包含的$G$的正规子群仅为$\{e\}$，只需证明：\\
+1）$F_{x}$包含的$G$的正规子群大于${e}$$\rightarrow$$G$在$O_{x}$上作用不是有效的\\
+2）$F_{x}$包含的$G$的正规子群大于${e}$$\leftarrow$$G$在$O_{x}$上作用不是有效的\\
+
+\noindent 子群$H\subseteq F_{x},\ \forall a\in G:aHa^{-1}=_{S}H$\\
+$\rightarrow \forall y\in O_{x}:\quad \forall h\in H,\ \exists g\in G:y=g(x),\ ghg^{-1}(y)=gh(x)=g(x)=y$\\
+$\rightarrow \forall y\in O_{x}:\quad \forall h\in H,\ \exists g\in G:ghg^{-1}\in F_{y}$\\
+$\rightarrow \forall y\in O_{x}:\quad gHg^{-1}\subseteq F_{y}\rightarrow \forall y\in O_{x}:\quad H\subseteq F_{y}$\\
+$\rightarrow H\subseteq \cap_{i=1}^{m} F_{y_{i}}\ (y_{i}\in O_{x},\ m=|O_{x}|)$\\
+$\rightarrow \forall h\in H:\forall y\in O_{x}:h(y)=y$\\
+
+\noindent 如果$\exists H\subset G,\ H>_{G}\{e_{G}\}:\forall h\in H:\forall y\in O_{x}:h(y)=y$\\
+$\rightarrow H=_{G}\cap_{i=1}^{m} F_{y_{i}}\ (y_{i}\in O_{x},\ m=|O_{x}|)$\\
+$\rightarrow\forall g\in G,\ \forall h\in H:\quad\forall y\in O_{x}:\exists z\in O_{x},\ y=g(z),\ ghg^{-1}(y)=gh(z)=g(z)=y$\\
+$\rightarrow\forall g\in G,\ \forall h\in H:\quad ghg^{-1}\in H$\\
+$\rightarrow\forall g\in G:gHg^{-1}=_{S}H$\\
