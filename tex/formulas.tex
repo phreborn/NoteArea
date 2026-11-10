@@ -1,0 +1,20 @@
+\section{公式}
+
+\begin{align}
+    \phi =\frac{\rho(r_{source})\rho(r_{acceptor})}{4\pi \epsilon_0(r_{acceptor}-r_{source})^{2}}
+\end{align}
+\begin{equation}
+    \begin{split}
+    &\quad \phi(\rho(r_{1}),\rho(r_{2}),\dots,\rho(r_{n}))\\
+    &=\frac{\rho(r_{1})\rho(r_{2})}{(r_{2}-r_{1})^{2}}\\
+    &\quad +(\frac{\rho(r_{1})\rho(r_{3})}{(r_{3}-r_{1})^{2}}+\frac{\rho(r_{2})\rho(r_{3})}{(r_{3}-r_{2})^{2}})\\
+    &\quad +(\frac{\rho(r_{1})\rho(r_{4})}{(r_{4}-r_{1})^{2}}+\frac{\rho(r_{2})\rho(r_{4})}{(r_{4}-r_{2})^{2}}+\frac{\rho(r_{3})\rho(r_{4})}{(r_{4}-r_{3})^{2}})\\
+    &\quad +(\frac{\rho(r_{1})\rho(r_{5})}{(r_{5}-r_{1})^{2}}+\frac{\rho(r_{2})\rho(r_{5})}{(r_{5}-r_{2})^{2}}+\frac{\rho(r_{3})\rho(r_{5})}{(r_{5}-r_{3})^{2}}+\frac{\rho(r_{4})\rho(r_{5})}{(r_{5}-r_{4})^{2}})\\
+    &\quad +\dots \\
+    &=\sum_{j=2}^{n}\sum_{i=1}^{j-1}\frac{\rho(r_{i})\rho(r_{j})}{(r_{j}-r_{i})^{2}}\\
+    &=\frac{1}{2}\sum_{j=1}^{n}\sum_{i=1}^{n}\frac{\rho(r_{i})\rho(r_{j})}{(r_{j}-r_{i})^{2}}\\
+    \end{split}
+\end{equation}
+\begin{align}
+    \intop_{r=a}^{r=b}{\intop_{r'=a}^{r'=r}{\frac{1}{(r-r')^{2}}dr'dr}}
+\end{align}
