@@ -1,5 +1,6 @@
 \section{公式}
 
+\subsection{点电荷系的静电能}
 \begin{align}
     \phi =\frac{\rho(r_{source})\rho(r_{acceptor})}{4\pi \epsilon_0(r_{acceptor}-r_{source})^{2}}
 \end{align}
@@ -18,3 +19,21 @@
 \begin{align}
     \intop_{r=a}^{r=b}{\intop_{r'=a}^{r'=r}{\frac{1}{(r-r')^{2}}dr'dr}}
 \end{align}
+
+电流元$Id\vec{l}=\vec{j}dV$，其中，$I=\vec{j}\cdot \vec{A}$, $dV=\vec{A}\cdot d\vec{l}$，
+$\vec{A}$为电流穿过的横截面面积向量。$d\vec{l}=dl\vec{n}_{0}$与$\vec{j}=j\vec{n}_{0}$同向，
+$Id\vec{l}=(\vec{j}\cdot \vec{A})d\vec{l}=j\vec{n}_{0}\cdot \vec{A}dl\vec{n}_{0}$，
+$\vec{j}dV=\vec{j}(\vec{A}\cdot d\vec{l})=j\vec{n}_{0}(\vec{A}\cdot dl\vec{n}_{0})$。
+
+\par
+$dV=Sdl\ v.s.\ dr^{3}$
+
+\subsection{构造法：比奥萨伐尔定律的启发 (没对)}
+已知：1）$F$的具体形式，2）$F$是某个矢量场$A$的旋度场，$F=\nabla\times A$，求：$A$。
+
+物理上，我们知道恒稳磁场$\nabla\times \vec{B}=\mu_0\vec{j}$，其中$\vec{j}$是电流密度。
+而磁感应强度$B$又可以用电流$j$计算出来，由比奥萨伐尔定律
+$\vec{B}(\vec{r_{2}}) = \frac{\mu_0}{4\pi} \int \frac{\vec{j}(\vec{r_{1}}) \times (\vec{r_{2}}-\vec{r_{1}})}{|\vec{r_{2}}-\vec{r_{1}}|^3} dV_{1}$
+
+也即，$\vec{F}=\nabla\times \vec{A}$，
+$\vec{A}(\vec{r_{2}}) = \frac{\mu_0}{4\pi} \int \frac{\vec{F}(\vec{r_{1}}) \times (\vec{r_{2}}-\vec{r_{1}})}{|\vec{r_{2}}-\vec{r_{1}}|^3} dV_{1}$
