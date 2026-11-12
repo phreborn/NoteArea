@@ -37,3 +37,75 @@ $\vec{B}(\vec{r_{2}}) = \frac{\mu_0}{4\pi} \int \frac{\vec{j}(\vec{r_{1}}) \time
 
 也即，$\vec{F}=\nabla\times \vec{A}$，
 $\vec{A}(\vec{r_{2}}) = \frac{\mu_0}{4\pi} \int \frac{\vec{F}(\vec{r_{1}}) \times (\vec{r_{2}}-\vec{r_{1}})}{|\vec{r_{2}}-\vec{r_{1}}|^3} dV_{1}$
+
+\subsection{三维分部积分}
+希腊字母代表标量场，大写英文字母代表矢量场，与$\nabla$两两组合：
+1）$(\psi\phi)$、$(\psi A)$、$(A\cdot B)$、$(A\times B)$，
+2）$\nabla \psi$、$\nabla\cdot A$、$\nabla\times A$，
+3）$\nabla\cdot\nabla=\nabla^2$、$\nabla \times \nabla$
+
+1个$\nabla$与（2个场）组合（对应分部积分）：
+
+$\nabla (\psi\phi)$
+
+$\nabla\cdot (\psi A)$、$\nabla\times (\psi A)$
+
+$\nabla (A\cdot B)$
+
+$\nabla \cdot (A\times B)$、$\nabla\times (A\times B)$
+
+1个场与（1个$\nabla$+1个场）组合：
+
+2个$\nabla$与1个场组合：
+
+\subsection{波函数、格林函数法}
+
+$\phi\varphi$
+
+波函数$\psi(\alpha_{i})$只表示一个量子态的态矢量$|\psi\rangle$在$\alpha$表象下投影到的基矢$|\alpha_i\rangle$的\textbf{分量}，
+$\psi(\alpha_{i})=\langle\alpha_i|\psi\rangle$，它本身甚至都不是一个态矢量（$|\alpha_i\rangle\langle\alpha_i|\psi\rangle=\psi(\alpha_{i})|\alpha_i\rangle$才是）。
+
+完备性关系$\sum_i |\alpha_i\rangle\langle\alpha_i| = I$可以将量子态$|\psi\rangle$在$\alpha$表象上完整地表示出来，
+$|\psi\rangle=\sum_i |\alpha_i\rangle\langle\alpha_i|\psi\rangle=\sum_i \psi(\alpha_i)|\alpha_i\rangle $。
+
+一组构成完备基的可观测量=一个表象，常见的可观测量有：位置$x$、动量$p$、能量（动能、势能）$E$、角动量$L$、自旋$S$、宇称$P$、电荷共轭$C$、粒子数$N$等。
+
+$\hat{O}|\psi\rangle=V|\psi\rangle$，$\hat{O}|\phi\rangle=0$
+
+解：
+
+$|\psi\rangle=|\phi\rangle+\hat{O}^{-1}V|\psi\rangle$
+
+$\langle x|\psi\rangle=\langle x|\phi\rangle+\langle x|\hat{O}^{-1}V|\psi\rangle$
+
+$\langle x|\psi\rangle=\langle x|\phi\rangle+\langle x|\hat{O}^{-1}(\sum |x'\rangle\langle x'|)V|\psi\rangle$
+
+$\langle x|\psi\rangle=\langle x|\phi\rangle+\langle x|\hat{O}^{-1}(\int |x'\rangle\langle x'|dx') V|\psi\rangle=\langle x|\phi\rangle+\int \langle x|\hat{O}^{-1}|x'\rangle\langle x'|V|\psi\rangle dx'$
+
+\begin{equation}
+    \psi(x)=\phi(x)+\int O^{-1}(x,x') V(x') \psi(x') dx'
+    \label{eq:resolvent}
+\end{equation}
+
+其中，
+1）算符$\hat{O}^{-1}$在$x$表象下的矩阵元$\langle x|\hat{O}^{-1}|x'\rangle$可以写为函数$O^{-1}(x,x')$，
+2）$\langle x'|V|\psi\rangle=\langle x'|V(\int |x''\rangle\langle x''|dx'') |\psi\rangle=\int \langle x'|V|x''\rangle \psi(x'')dx''$，
+势能$\langle x'|V|x''\rangle=V(x')\delta(x'-x'')$，
+$\langle x'|V|\psi\rangle=\int V(x')\delta(x'-x'') \psi(x'') dx''=V(x')\psi(x')$
+
+再看原方程：
+
+$\langle x|\hat{O}|\psi\rangle=\langle x|V|\psi\rangle$
+
+$\int O(x,x')\psi(x')dx'=V(x)\psi(x)$，代入式\eqref{eq:resolvent}第二项：
+
+\begin{equation}
+    \begin{split}
+    &\quad \int O^{-1}(x,x') V(x') \psi(x') dx'\\
+    =& \int O^{-1}(x,x') \int O(x',x'')\psi(x'')dx'' dx'\\
+    =& \int (\int O^{-1}(x,x') O(x',x'')dx')\psi(x'') dx''\\
+    =& \int \delta(x-x'')\psi(x'') dx''\\
+    =& \psi(x)
+    \end{split}
+\end{equation}
+其中，$\int O^{-1}(x,x') O(x',x'')dx'=\delta(x-x'')$是正逆矩阵相乘$\hat{O}\hat{O}^{-1}=I$的矩阵元展开
