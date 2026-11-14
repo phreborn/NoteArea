@@ -109,3 +109,26 @@ $\int O(x,x')\psi(x')dx'=V(x)\psi(x)$，代入式\eqref{eq:resolvent}第二项�
     \end{split}
 \end{equation}
 其中，$\int O^{-1}(x,x') O(x',x'')dx'=\delta(x-x'')$是正逆矩阵相乘$\hat{O}\hat{O}^{-1}=I$的矩阵元展开
+
+
+\subsection{旋度的体积分公式：旋度定理}
+
+$\int_{S} (\nabla \times \vec{A}) \cdot d\vec{S}=\oint_{\partial S} \vec{A}\cdot d\vec{l}$
+
+\begin{equation}
+    \begin{split}
+        &\quad\int_{V} \nabla \times \vec{A} dV\\
+        =& \int (\iint (\nabla \times \vec{A})_{x}\vec{e}_{i} dydz)dx\\
+        &+ \int (\iint (\nabla \times \vec{A})_{y}\vec{e}_{j} dzdx)dy\\
+        &+ \int (\iint (\nabla \times \vec{A})_{z}\vec{e}_{k} dxdy)dz\\
+        =& \int (\iint (\nabla \times \vec{A})\cdot  (d\vec{y}\times d\vec{z}))\vec{e}_{i}dx
+        \quad\text{(沿$x$方向对$V$进行切片，沿着切片边界求$\vec{A}$的环量)}\\
+        &+ \int (\iint (\nabla \times \vec{A})\cdot  (d\vec{z}\times d\vec{x}))\vec{e}_{j}dy
+        \quad\text{(沿$y$方向对$V$进行切片，沿着切片边界求$\vec{A}$的环量)}\\
+        &+ \int (\iint (\nabla \times \vec{A})\cdot  (d\vec{x}\times d\vec{y}))\vec{e}_{k}dz
+        \quad\text{(沿$z$方向对$V$进行切片，沿着切片边界求$\vec{A}$的环量)}\\
+   \end{split}
+\end{equation}
+
+实际上就是$\vec{A}$在体积$V$的边界面$\partial V$上的投影（切向分量）沿着边界面积分$\oint_{\partial V} \vec{A}\times d\vec{S}$。
+散度定理是法向分量沿着边界面积分$\oint_{\partial V} \vec{A}\cdot d\vec{S}$。
