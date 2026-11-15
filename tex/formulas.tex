@@ -132,3 +132,89 @@ $\int_{S} (\nabla \times \vec{A}) \cdot d\vec{S}=\oint_{\partial S} \vec{A}\cdot
 
 实际上就是$\vec{A}$在体积$V$的边界面$\partial V$上的投影（切向分量）沿着边界面积分$\oint_{\partial V} \vec{A}\times d\vec{S}$。
 散度定理是法向分量沿着边界面积分$\oint_{\partial V} \vec{A}\cdot d\vec{S}$。
+
+
+\subsection{}
+
+$\nabla \times \vec{A}=\vec{F}$，
+从$r_{0}=(x_{0},y_{0},z_{0})$点出发，沿着$z$轴逐$dz$构造（积分），$\vec{A}(\vec{r}+dz\vec{k})=\vec{A}(\vec{r})+\vec{F}(\vec{r})\times\vec{k}dz$
+
+$x$轴方向，$\vec{A}(\vec{r}+dx\vec{i})=\vec{A}(\vec{r})+\vec{F}(\vec{r})\cdot\vec{k}dx$
+
+取$\vec{A}(\vec{r})$，$\vec{A}(\vec{r}+dz\vec{k})$，$\vec{A}(\vec{r}+dx\vec{i})$，$\vec{A}(\vec{r}+dz\vec{k}+dx\vec{i})$
+
+$\vec{F}(\vec{r})\times\vec{k}=-\frac{\vec{A}(\vec{r}+dz\vec{k})-\vec{A}(\vec{r})}{dz}$
+
+$\vec{F}(\vec{r}+dx\vec{i})\times\vec{k}=-\frac{\vec{A}(\vec{r}+dx\vec{i}+dz\vec{k})-\vec{A}(\vec{r}+dx\vec{i})}{dz}$
+
+$\vec{F}(\vec{r})\cdot\vec{k}=\frac{\vec{A}(\vec{r}+dx\vec{i})-\vec{A}(\vec{r})}{dx}$
+
+$\vec{F}(\vec{r}+dz\vec{k})\cdot\vec{k}=\frac{\vec{A}(\vec{r}+dx\vec{i}+dz\vec{k})-\vec{A}(\vec{r}+dz\vec{k})}{dx}$
+
+$(\vec{F}(\vec{r}+dz\vec{k})\cdot\vec{k}-\vec{F}(\vec{r})\cdot\vec{k})/dz+(\vec{F}(\vec{r}+dx\vec{i})\times\vec{k}-\vec{F}(\vec{r})\times\vec{k})/dx=0$
+（符合$\nabla \cdot \vec{F}=0$）
+
+（以上是示意性图像，不是严谨的等式）
+
+\bigskip
+\bigskip
+\bigskip
+
+核心构造：
+$-A_y(r+dz)+A_y(r)=F_x(r)dz$，
+$A_x(r+dz)-A_x(r)=F_y(r)dz$，
+$(A_y(r+dx)-A_y(r))/dx+(-A_x(r+dy)+A_x(r))/dy=F_z(r)$
+
+\[
+\begin{cases}
+-A_y(r+dz)+A_y(r)=F_x(r)dz\\
+
+-A_y(r+dz+dx)+A_y(r+dx)=F_x(r+dx)dz\\
+
+A_x(r+dz)-A_x(r)=F_y(r)dz\\
+
+A_x(r+dz+dy)-A_x(r+dy)=F_y(r+dy)dz\\
+
+(A_y(r+dx)-A_y(r))/dx+(-A_x(r+dy)+A_x(r))/dy=F_z(r)\\
+
+(A_y(r+dx+dz)-A_y(r+dz))/dx+(-A_x(r+dy+dz)+A_x(r+dz))/dy=F_z(r+dz)\\
+\end{cases}
+\]
+
+$(F_x(r+dx)-F_x(r))/dx+(F_y(r+dy)-F_y(r))/dy+(F_z(r+dz)-F_z(r)/dz)=0$
+（$\nabla \cdot \vec{F}=0$）
+
+设$\vec{A}$只有$y$分量，只需看$z-x$平面：
+
+核心构造：
+$-A_y(r+dz)+A_y(r)=F_x(r)dz$，
+$A_y(r+dx)-A_y(r)/dx=F_z(r)$
+
+\[
+\begin{cases}
+-A_y(r+dz)+A_y(r)=F_x(r)dz\\
+
+-A_y(r+dz+dx)+A_y(r+dx)=F_x(r+dx)dz\\
+
+(A_y(r+dx)-A_y(r))/dx=F_z(r)\\
+
+(A_y(r+dx+dz)-A_y(r+dz))/dx=F_z(r+dz)\\
+\end{cases}
+\]
+
+$(F_x(r+dx)-F_x(r))/dx+(F_z(r+dz)-F_z(r))/dz=0$
+
+\bigskip
+
+（以上方法构造条件不足，还得确定$z=z_0$平面上的$\vec{A}$；
+$z=z_0$平面上的$\vec{A}$不确定，无法全构造）
+
+\bigskip
+
+$\vec{A}(\vec{r})=\int_{0}^{1} t\vec{F}(t\vec{r})\times\vec{r} dt$
+$=\frac{1}{\textcolor{red}{r}}\int_{0\textcolor{red}{r}}^{1\textcolor{red}{r}} \vec{F}(t\vec{r})\times(t\vec{r}) d(t\textcolor{red}{r})$
+
+从$\vec{A}(\vec{r}=0)$开始就可以全构造
+
+这样构造出来的$\vec{A}$的旋度在$\theta-\varphi$平面上的分量自然等于$\vec{F}$在$\theta-\varphi$平面上的分量，
+只需验证$\vec{A}$的旋度在$r$方向上的分量是否等于$\vec{F}$在$r$方向上的分量
