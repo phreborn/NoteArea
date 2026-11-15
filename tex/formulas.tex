@@ -218,3 +218,45 @@ $=\frac{1}{\textcolor{red}{r}}\int_{0\textcolor{red}{r}}^{1\textcolor{red}{r}} \
 
 这样构造出来的$\vec{A}$的旋度在$\theta-\varphi$平面上的分量自然等于$\vec{F}$在$\theta-\varphi$平面上的分量，
 只需验证$\vec{A}$的旋度在$r$方向上的分量是否等于$\vec{F}$在$r$方向上的分量
+
+\subsection{}
+
+$B = \mu_0(H+M)$，$H=B/\mu_0-M$
+
+$\nabla\times H = j_c$
+
+$\nabla \cdot H=\nabla \cdot B/\mu_0-\nabla \cdot M=0-\nabla \cdot M=-\nabla \cdot M$
+
+亥姆霍兹分解：
+
+$H = \underbrace{-\nabla\frac{1}{4\pi}\int\frac{\nabla'\cdot H}{|r-r'|}\,dV'}_{\text{由散度决定（无旋部分）}} + \underbrace{\nabla\times\frac{1}{4\pi}\int\frac{\nabla'\times H}{|r-r'|}\,dV'}_{\text{由旋度决定（无散部分）}}$
+
+$H_m=-\nabla\frac{1}{4\pi}\int\frac{\nabla'\cdot H}{|r-r'|}\,dV'$
+
+$H_c=\nabla\times\frac{1}{4\pi}\int\frac{\nabla'\times H}{|r-r'|}\,dV'$
+
+\bigskip
+
+$\nabla \times B/\mu_0=j_c+j_m$
+
+$\nabla \times H=\nabla \times B/\mu_0-\nabla \times M=(j_c+j_m)-\nabla \times M=j_c$
+
+$\nabla \times M=j_m$
+
+亥姆霍兹分解：
+
+$M=M_m+M_c$，
+$\nabla \times M_c=j_m$，$\nabla \cdot M_c=0$，
+$\nabla \cdot M_m=\nabla \cdot M$，$\nabla \times M_m=0$
+
+$H_c=B/\mu_0-M_c$
+
+$H_m=-M_m$
+
+（这部分不均匀磁化导致散度不为0的磁化$M_m$正是磁荷的来源）
+
+（磁化不均匀的原因有：1）外场不均；2）磁介质各向同性但成分不均匀、磁介质成分均匀但各向异性或不均匀的同时还各向异性）
+
+\bigskip
+
+$\nabla \times H=0$的情况下，$H=H_m=-M_m$
