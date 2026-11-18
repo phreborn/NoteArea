@@ -438,7 +438,10 @@ $i\hbar \frac{\partial}{\partial t}|\psi\rangle = H|\psi\rangle$
     &= c_i(t) E^{(0)}_i e^{-iE^{(0)}_i t/\hbar} + \sum_{j} c_j(t) e^{-iE^{(0)}_j t/\hbar} \langle \phi^{(0)}_i| V(t) |\phi^{(0)}_j\rangle \\
     &i\hbar c_i'(t) e^{-iE^{(0)}_i t/\hbar} = \sum_{j} c_j(t) e^{-iE^{(0)}_j t/\hbar} \langle \phi^{(0)}_i| V(t) |\phi^{(0)}_j\rangle \\
     & c_i'(t) = \frac{1}{i\hbar} \sum_{j} c_j(t) e^{-i(E^{(0)}_j - E^{(0)}_i) t/\hbar} \langle \phi^{(0)}_i| V(t) |\phi^{(0)}_j\rangle\\
-    & c_i(t) = \frac{1}{i\hbar} \sum_{j} \int_{0}^{t} c_j(t) e^{-i(E^{(0)}_j - E^{(0)}_i) t/\hbar} \langle \phi^{(0)}_i| V(t) |\phi^{(0)}_j\rangle dt\\
+    & c_i(t) - c_i(0) = \frac{1}{i\hbar} \sum_{j} \int_{0}^{t} c_j(t) e^{-i(E^{(0)}_j - E^{(0)}_i) t/\hbar} \langle \phi^{(0)}_i| V(t) |\phi^{(0)}_j\rangle dt\\
+    & c_i(t) = c_i(0) + \frac{1}{i\hbar} \sum_{j} \int_{0}^{t} c_j(t) e^{-i(E^{(0)}_j - E^{(0)}_i) t/\hbar} \langle \phi^{(0)}_i| V(t) |\phi^{(0)}_j\rangle dt\\
+    & t=0 \text{时，} c_i(0) = \delta_{in} \text{，有}\\
+    & c_i(t) = \delta_{in} + \frac{1}{i\hbar} \sum_{j} \int_{0}^{t} c_j(t) e^{-i(E^{(0)}_j - E^{(0)}_i) t/\hbar} \langle \phi^{(0)}_i| V(t) |\phi^{(0)}_j\rangle dt\\
     \end{split}
 \end{equation}
 
@@ -447,19 +450,19 @@ $|\phi(t)\rangle$从$|\phi^{(0)}_n\rangle$开始演化，在$t\to 0$的时候，
 \begin{equation}
     \begin{split}
     c_i'(t) &\approx \frac{1}{i\hbar} e^{-i(E^{(0)}_n - E^{(0)}_i) t/\hbar} \langle \phi^{(0)}_i| V(t) |\phi^{(0)}_n\rangle\\
-    c_i(t) &\approx \frac{1}{i\hbar} \int_{0}^{t} e^{-i(E^{(0)}_n - E^{(0)}_i) t/\hbar} \langle \phi^{(0)}_i| V(t) |\phi^{(0)}_n\rangle dt\\
+    c_i(t) &\approx \delta_{in} + \frac{1}{i\hbar} \int_{0}^{t} e^{-i(E^{(0)}_n - E^{(0)}_i) t/\hbar} \langle \phi^{(0)}_i| V(t) |\phi^{(0)}_n\rangle dt\\
     \end{split}
 \end{equation}
 
 将上面结果作为$c_i(t)$的一级近似
-$c_i^{(1)}(t) = \frac{1}{i\hbar} \int_{0}^{t} e^{-i(E^{(0)}_n - E^{(0)}_i) t/\hbar} \langle \phi^{(0)}_i| V(t) |\phi^{(0)}_n\rangle dt$
+$c_i^{(1)}(t) = \delta_{in} + \frac{1}{i\hbar} \int_{0}^{t} e^{-i(E^{(0)}_n - E^{(0)}_i) t/\hbar} \langle \phi^{(0)}_i| V(t) |\phi^{(0)}_n\rangle dt$
 
-\bigskip
-
-验证初始条件，当$t=0$，$c_i^{(1)}(0) = 0\ (i\neq n)$，$c_n^{(1)}(0)=1$？
-
-把$|\phi(t)\rangle$改为
-
-$|\phi(t)\rangle=e^{-iE^{(0)}_n t/\hbar} |\phi^{(0)}_n\rangle+\sum_{i} c_i(t) e^{-iE^{(0)}_i t/\hbar} |\phi^{(0)}_i\rangle$
-？
+%\bigskip
+%
+%验证初始条件，当$t=0$，$c_i^{(1)}(0) = 0\ (i\neq n)$，$c_n^{(1)}(0)=1$？
+%
+%把$|\phi(t)\rangle$改为
+%
+%$|\phi(t)\rangle=e^{-iE^{(0)}_n t/\hbar} |\phi^{(0)}_n\rangle+\sum_{i} c_i(t) e^{-iE^{(0)}_i t/\hbar} |\phi^{(0)}_i\rangle$
+%？
 
