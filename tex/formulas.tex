@@ -286,7 +286,7 @@ $\nabla \times H=0$的情况下，$H=H_m=-M_m$
 磁场不会对电子做功，但会对代表运动电荷的磁矩做功，怎么解释？
 
 
-\subsection{}
+\subsection{泰勒展开解定态微扰}
 
 $H=H_0+\lambda V, 0<\lambda\ll 1$
 
@@ -411,7 +411,7 @@ $\cdots$
 
 
 
-\subsection{积分方程迭代}
+\subsection{积分方程迭代解含时微扰}
 
 $H=H^{(0)}+V(t)$
 
@@ -488,4 +488,83 @@ b）完成上一步之后，开始移除顶点，每移除1个顶点要将连接
     一维：&曲线  &长度  &端点     &主法向  &圆周  &圆周角\\
     二维：&曲面  &面积  &边界曲线  &法向  &球面  &立体角\\
 \end{tabular}
+
+
+\subsection{角动量代数}
+
+
+$[L_{x}, L_{y}]=i\hbar L_{z}$，
+$[L_{y}, L_{z}]=i\hbar L_{x}$，
+$[L_{z}, L_{x}]=i\hbar L_{y}$
+
+$L^{+}\stackrel{\text{def}}{=}L_x+iL_y$，
+$L^{-}\stackrel{\text{def}}{=}L_x-iL_y$
+
+$[L_z,L^{+}]=[L_z,L_x]+[L_z,iL_y]=i\hbar L_y+i(-i\hbar L_x)=\hbar (L_x+iL_y)=\hbar L^{+}$
+
+$[L_z,L^{-}]=[L_z,L_x]-[L_z,iL_y]=i\hbar L_y-i(-i\hbar L_x)=-\hbar (L_x-iL_y)=-\hbar L^{-}$
+
+\bigskip
+
+$L^{+}L^{-}=(L_x+iL_y)(L_x-iL_y)=L_x^2+L_y^2-iL_xL_y+iL_yL_x=L_x^2+L_y^2-i[L_x,L_y]=L_x^2+L_y^2+\hbar L_z$
+
+$L^{-}L^{+}=(L_x-iL_y)(L_x+iL_y)=L_x^2+L_y^2+iL_xL_y-iL_yL_x=L_x^2+L_y^2+i[L_x,L_y]=L_x^2+L_y^2-\hbar L_z$
+
+$L^{2}=L_x^2+L_y^2+L_z^2=(L^{-}L^{+}+\hbar L_z)+L_z^2$
+
+$L^{-}L^{+}=L^{2}-L_z^2-\hbar L_z$
+
+\bigskip
+
+（$[A,B]C+B[A,C]=ABC-BAC+BAC-BCA=ABC-BCA=[A,BC]$）
+
+$[L_z,L_x^2]=L_x[L_z,L_x]+[L_z,L_x]L_x=i\hbar L_xL_y+i\hbar L_yL_x$，
+$[L_z,L_y^2]=L_y[L_z,L_y]+[L_z,L_y]L_y=-i\hbar L_yL_x-i\hbar L_xL_y$，
+$[L_z,L_z^2]=0$
+
+$[L_z,L^2]=[L_z,L_x^2]+[L_z,L_y^2]+[L_z,L_z^2]=0$
+
+$L_z$和$L^2$对易，它们有共同的本征态，记为$|l,m\rangle$
+
+设$L_z|l,m\rangle=m\hbar |l,m\rangle$
+
+\bigskip
+
+$[L_z,L^{+}]|l,m\rangle=\hbar L^{+}|l,m\rangle$
+
+$[L_z,L^{+}]|l,m\rangle=L_zL^{+}|l,m\rangle-L^{+}L_z|l,m\rangle=L_zL^{+}|l,m\rangle-L^{+}m\hbar|l,m\rangle$
+
+$L_zL^{+}|l,m\rangle-L^{+}m\hbar|l,m\rangle=\hbar L^{+}|l,m\rangle$
+
+$L_zL^{+}|l,m\rangle=L^{+}m\hbar|l,m\rangle+\hbar L^{+}|l,m\rangle=(m+1)\hbar L^{+}|l,m\rangle$
+
+$L^{+}|l,m\rangle\sim |l,m+1\rangle$
+
+\bigskip
+
+$L^2|l,m\rangle=L^{-}L^{+}|l,m\rangle+\hbar L_z|l,m\rangle+L_z^2|l,m\rangle=L^{-}L^{+}|l,m\rangle+m\hbar^2|l,m\rangle+m^2\hbar^2|l,m\rangle$
+
+物理上，$L^2$是角动量$\overrightarrow{L}$的大小的平方，$L_z$只是角动量$\overrightarrow{L}$在$z$方向上的分量，
+如果只规定$L^2$值，那$\overrightarrow{L}$在$z$方向上的分量的取值$L_z$可以有多种不同的情况，
+但$L_z^2$不会超过$L^2$，有一个最大值$L_{z,max}$
+
+现在假定$|l,m\rangle$的$m$是在$l$态下所能取到的最大正值，
+则$L^{+}|l,m\rangle\sim |l,m+1\rangle$是不被允许的，因此，$L^{+}|l,m\rangle=0$，
+因此，
+$L^2|l,m\rangle=L^{-}L^{+}|l,m\rangle+m\hbar^2|l,m\rangle+m^2\hbar^2|l,m\rangle=m(m+1)\hbar^2|l,m\rangle$，
+$L^2$在$|l,m\rangle$这个态上的本征值是$m(m+1)\hbar^2$
+
+\bigskip
+
+设$L^{+}|l,m\rangle=c^{+}|l,m+1\rangle$，
+$|L^{+}|l,m\rangle|^2=|c^{+}|l,m+1\rangle|^2=|c^{+}|^2$
+
+$(L^{+}|l,m\rangle)^{\dagger}=\langle l,m|L^{-}$
+
+$|L^{+}|l,m\rangle|^2=\langle l,m|L^{-}L^{+}|l,m\rangle=\langle l,m|L^{2}-L_z^2-\hbar L_z|l,m\rangle=\langle l,m|l(l+1)\hbar^2-m^2\hbar^2-m\hbar^2|l,m\rangle=[l(l+1)-m(m+1)]\hbar^2$
+
+$|c^{+}|^2=[l(l+1)-m(m+1)]\hbar^2=(l+m+1)(l-m)\hbar^2$
+
+取$c^{+}=\sqrt{(l+m+1)(l-m)}\hbar$
+
 
